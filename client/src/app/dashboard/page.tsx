@@ -93,8 +93,8 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent className="shadow-none border-none">
               <Progress value={(stats.weekly_progress.solved / stats.weekly_progress.goal) * 100} className="h-3 bg-white/5" />
-              <div className="mt-6 flex items-start gap-4 rounded-2xl bg-emerald-500/5 p-4 ring-1 ring-emerald-500/10">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 font-bold text-xl">
+              <div className="mt-6 flex items-start gap-4 rounded-2xl bg-linear-to-br from-emerald-500/10 to-blue-500/10 p-4 ring-1 ring-white/10">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-emerald-400 to-blue-600 text-white font-bold text-xl shadow-lg shadow-emerald-500/20">
                   {stats.weekly_progress.daily_suggestion}
                 </div>
                 <div>
@@ -110,7 +110,7 @@ export default function DashboardPage() {
             <CardHeader className="shadow-none border-none">
               <CardTitle className="text-lg">Consistency Heatmap</CardTitle>
             </CardHeader>
-            <CardContent className="shadow-none border-none flex flex-wrap gap-1">
+            <CardContent className="shadow-none border-none flex flex-wrap gap-1 bg-white/2">
               {Array.from({ length: 180 }).map((_, i) => (
                 <div 
                   key={i} 
@@ -123,8 +123,8 @@ export default function DashboardPage() {
 
         {/* Recommendations Column */}
         <div className="md:col-span-3 space-y-6">
-          <Card className="border-white/5 bg-white/5 overflow-hidden">
-            <CardHeader className="shadow-none border-none bg-white/[0.02]">
+          <Card className="border-white/5 bg-white/2 overflow-hidden">
+            <CardHeader className="shadow-none border-none bg-white/2">
               <CardTitle className="text-lg flex items-center gap-2">
                 <Zap className="h-5 w-5 text-yellow-400" />
                 Smart Recommendations

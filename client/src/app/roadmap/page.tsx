@@ -103,9 +103,9 @@ export default function RoadmapPage() {
         </aside>
 
         {/* Problem List */}
-        <div className="flex-1 rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden">
+        <div className="flex-1 rounded-2xl border border-white/5 bg-white/2 overflow-hidden">
           <Table>
-            <TableHeader className="bg-white/[0.03]">
+            <TableHeader className="bg-white/3">
               <TableRow className="hover:bg-transparent border-white/5">
                 <TableHead className="w-[50px] text-center">Done</TableHead>
                 <TableHead>Problem</TableHead>
@@ -117,7 +117,7 @@ export default function RoadmapPage() {
             </TableHeader>
             <TableBody>
               {currentProblems.map((prob) => (
-                <TableRow key={prob.id} className="border-white/5 hover:bg-white/[0.02]">
+                <TableRow key={prob.id} className="border-white/5 hover:bg-white/2">
                   <TableCell className="text-center">
                     <Checkbox 
                       checked={completed.has(prob.id)} 

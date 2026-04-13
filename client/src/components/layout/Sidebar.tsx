@@ -48,7 +48,7 @@ export function Sidebar() {
         </nav>
 
         <div className="space-y-4">
-          <div className="rounded-2xl bg-gradient-to-br from-emerald-500/10 to-blue-500/10 p-4 ring-1 ring-white/10">
+          <div className="rounded-2xl bg-linear-to-br from-emerald-500/10 to-blue-500/10 p-4 ring-1 ring-white/10">
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/40">
               <Zap className="h-3 w-3 text-emerald-400" />
               Next Level
@@ -59,7 +59,7 @@ export function Sidebar() {
                 <span className="text-white/40">850/1000 XP</span>
               </div>
               <div className="mt-2 h-1.5 w-full rounded-full bg-white/5 overflow-hidden">
-                <div className="h-full w-[85%] bg-gradient-to-r from-emerald-400 to-blue-500" />
+                <div className="h-full w-[85%] bg-linear-to-r from-emerald-400 to-blue-500" />
               </div>
             </div>
           </div>

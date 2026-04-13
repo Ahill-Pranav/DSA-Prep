@@ -6,7 +6,7 @@ export function Navbar() {
     <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-black/50 backdrop-blur-xl">
       <div className="flex h-16 items-center justify-between px-6">
         <div className="flex items-center gap-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-blue-600 font-bold text-white shadow-lg shadow-emerald-500/20">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-emerald-400 to-blue-600 font-bold text-white shadow-lg shadow-emerald-500/20">
             D
           </div>
           <span className="text-lg font-bold tracking-tight text-white">DSA Tracker <span className="text-emerald-400">Pro</span></span>
