@@ -155,10 +155,8 @@ export default function RoadmapPage() {
                   </TableCell>
                   <TableCell>
                     <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <button className="h-8 w-8 rounded-lg hover:bg-white/5 flex items-center justify-center text-white/20 hover:text-white">
-                          <MoreVertical className="h-4 w-4" />
-                        </button>
+                      <DropdownMenuTrigger className="h-8 w-8 rounded-lg hover:bg-white/5 flex items-center justify-center text-white/20 hover:text-white ring-1 ring-white/10">
+                        <MoreVertical className="h-4 w-4" />
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end" className="bg-[#0c0c0c] border-white/10 text-white">
                         <DropdownMenuItem className="focus:bg-white/5 focus:text-emerald-400 cursor-pointer">
