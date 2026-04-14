@@ -19,8 +19,8 @@ class User(SQLModel, table=True):
     created_at: datetime = Field(default_factory=datetime.utcnow)
     
     # Relationships
-    progress: List["UserProgress"] = Relationship(back_populates="user")
-    stats: List["DailyStats"] = Relationship(back_populates="user")
+    progress: List["UserProgress"] = Relationship(back_populates="user_rel")
+    stats: List["DailyStats"] = Relationship(back_populates="user_rel")
 
 class Problem(SQLModel, table=True):
     id: str = Field(primary_key=True) # e.g. "p1_1"
@@ -31,7 +31,7 @@ class Problem(SQLModel, table=True):
     phase_id: int
     tags: List[str] = Field(default=[], sa_column=Column(JSON))
     
-    progress: List["UserProgress"] = Relationship(back_populates="problem")
+    progress: List["UserProgress"] = Relationship(back_populates="problem_rel")
 
 class UserProgress(SQLModel, table=True):
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
@@ -43,13 +43,13 @@ class UserProgress(SQLModel, table=True):
     is_bookmarked: bool = Field(default=False)
     is_revision: bool = Field(default=False)
     
-    user: User = Relationship(back_populates="progress")
-    problem: Problem = Relationship(back_populates="progress")
+    user_rel: "User" = Relationship(back_populates="progress")
+    problem_rel: "Problem" = Relationship(back_populates="progress")
 
 class DailyStats(SQLModel, table=True):
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
     user_id: uuid.UUID = Field(foreign_key="user.id", index=True)
-    date: date = Field(default_factory=date.today)
+    date_: date = Field(default_factory=date.today)
     count: int = Field(default=0)
     
-    user: User = Relationship(back_populates="stats")
+    user_rel: "User" = Relationship(back_populates="stats")

@@ -56,12 +56,12 @@ def toggle_problem(
     stats = session.exec(
         select(DailyStats).where(
             DailyStats.user_id == current_user.id,
-            DailyStats.date == today
+            DailyStats.date_ == today
         )
     ).first()
     
     if not stats:
-        stats = DailyStats(user_id=current_user.id, date=today, count=0)
+        stats = DailyStats(user_id=current_user.id, date_=today, count=0)
         session.add(stats)
     
     xp_map = {"easy": 10, "medium": 20, "hard": 40}

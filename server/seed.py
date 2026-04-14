@@ -2,8 +2,16 @@ from sqlmodel import Session, create_engine, select
 from models import Problem, SQLModel
 import os
 
-# SQLite for local testing
-DATABASE_URL = "sqlite:///./dsa_tracker.db"
+import os
+
+# Use environment variable for production (Supabase) or SQLite for local
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./dsa_tracker.db")
+
+# For Supabase, SQLAlchemy requires the 'postgresql://' prefix 
+# (sometimes provided as 'postgres://' which is deprecated)
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
 engine = create_engine(DATABASE_URL)
 
 def seed_problems():

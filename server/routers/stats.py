@@ -27,7 +27,7 @@ def get_dashboard_stats(
     today = datetime.utcnow().date()
     for i in range(100):
         d = today - timedelta(days=i)
-        stat = session.exec(select(DailyStats).where(DailyStats.user_id == current_user.id, DailyStats.date == d)).first()
+        stat = session.exec(select(DailyStats).where(DailyStats.user_id == current_user.id, DailyStats.date_ == d)).first()
         if stat and stat.count > 0:
             streak += 1
         elif i > 0:
@@ -38,7 +38,7 @@ def get_dashboard_stats(
     heatmap_data = session.exec(
         select(DailyStats).where(
             DailyStats.user_id == current_user.id,
-            DailyStats.date >= year_ago
+            DailyStats.date_ >= year_ago
         )
     ).all()
     
@@ -56,7 +56,7 @@ def get_dashboard_stats(
     weekly_count = session.exec(
         select(func.sum(DailyStats.count)).where(
             DailyStats.user_id == current_user.id,
-            DailyStats.date >= start_of_week
+            DailyStats.date_ >= start_of_week
         )
     ).one() or 0
     
@@ -74,7 +74,7 @@ def get_dashboard_stats(
         },
         "xp": current_user.xp,
         "level": current_user.level,
-        "heatmap": {str(s.date): s.count for s in heatmap_data},
+        "heatmap": {str(s.date_): s.count for s in heatmap_data},
         "difficulty_distribution": {d: c for d, c in diff_stats},
         "recommendations": recs
     }
